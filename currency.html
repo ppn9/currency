@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>Currency Exchange</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var current = 0.029;
+			$("#pound").click(function(){
+   			 $("#pound").addClass("current");
+   			 $("#yen").removeClass("current");
+   			 $("#dollar").removeClass("current");
+   			 current = 0.027;
+			});
+
+			$("#dollar").click(function(){
+   			 $("#pound").removeClass("current");
+   			 $("#yen").removeClass("current");
+   			 $("#dollar").addClass("current");
+   			 current = 0.029;
+			});
+
+			$("#yen").click(function(){
+   			 $("#pound").removeClass("current");
+   			 $("#yen").addClass("current");
+   			 $("#dollar").removeClass("current");
+   			 current = 3.22;
+			});
+
+    		$(".exchange").click(function(){
+    			var input_money = document.getElementById("input_money").value;
+    			var exchange;
+    			exchange = input_money*current;
+        	$("#output_money").val(exchange);
+    		});
+		});
+
+	</script>
+<body>
+	<div class="bg_wrapper">
+		<div class="container">
+			<h1>Currency Exchange</h1>
+			<div class="currency_wrapper">
+				<div class="currency_btn current" id="dollar">$</div>
+				<div class="currency_btn" id="pound">£</div>
+				<div class="currency_btn" id="yen">¥</div>
+			</div> <!-- end currency_wrapper -->
+			
+			<div class="input_wrapper">
+				<p class="baht_p">BAHT: </p>
+				<input type="text" id="input_money" placeholder="Input Money" name="input_money" class="money"></div>
+				<div class="clear"></div>
+			<div id="exchange_btn" class="exchange">EXCHANGE</div>
+			
+			<div class="input_wrapper">
+				<p class="to_p">TO: </p>
+				<input type="text" id="output_money" placeholder="Output Money" name="output_money" class="money"></div>
+		</div> <!-- end container -->
+
+	</div> <!-- end bg_wrapper -->
+</body>
+</html>
